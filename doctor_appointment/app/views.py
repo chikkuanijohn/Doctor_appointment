@@ -68,3 +68,5 @@ def register(req):
 def booking_view(request):
     return render(request, 'booking.html') 
    
+def book_appointment(request):
+    return render(request, 'booking/book_appointment.html') 

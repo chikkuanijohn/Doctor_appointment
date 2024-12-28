@@ -1,182 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medical Care Landing Page</title>
-  <style>
-      /* General body styling */
-      body {
-          margin: 0;
-          padding: 0;
-          font-family: Arial, sans-serif;
-          background-color: #e5e5e5;
-          color: #333;
-      }
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
 
-      /* Header styling */
-      header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px 40px;
-          background-color: #fff;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
 
-      header .logo {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: #333;
-      }
+        .header {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-      header nav ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: flex;
-      }
+        .doctor-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-      header nav ul li {
-          margin: 0 15px;
-      }
+        .doctor-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
 
-      header nav ul li a {
-          text-decoration: none;
-          color: #333;
-          font-size: 1rem;
-          transition: color 0.3s;
-      }
+        .doctor-info {
+            flex: 1 1 auto;
+            min-width: 200px;
+        }
 
-      header nav ul li a:hover {
-          color: #007bff;
-      }
+        .doctor-info h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
 
-      /* Form container styling */
-      .form-container {
-          max-width: 500px;
-          margin: 50px auto;
-          padding: 20px;
-          background-color: #ffffff;
-          border-radius: 8px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+        .doctor-info p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
 
-      h2 {
-          margin-bottom: 20px;
-          color: #333;
-          text-align: center;
-      }
+        .availability {
+            flex: 0 0 150px;
+            text-align: right;
+        }
 
-      p {
-          color: #666;
-          margin-bottom: 20px;
-          text-align: center;
-      }
+        .availability p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 14px;
+        }
 
-      .form-group {
-          margin-bottom: 15px;
-      }
+        .availability .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
 
-      label {
-          display: block;
-          font-weight: bold;
-          margin-bottom: 5px;
-          color: #333;
-      }
+        .availability .btn:hover {
+            background-color: #0056b3;
+        }
 
-      input, select, textarea {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-      }
+        @media (max-width: 768px) {
+            .doctor-card {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
 
-      input:focus, select:focus, textarea:focus {
-          border-color: #007bff;
-          outline: none;
-      }
+            .doctor-card img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
 
-      textarea {
-          resize: none;
-      }
+            .availability {
+                flex: 1 1 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
 
-      .btn {
-          width: 100%;
-          padding: 10px;
-          background-color: #4caf50;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: background-color 0.3s;
-      }
+        @media (max-width: 480px) {
+            .doctor-info h3 {
+                font-size: 16px;
+            }
 
-      .btn:hover {
-          background-color: #45a049;
-      }
-  </style>
+            .doctor-info p {
+                font-size: 12px;
+            }
+
+            .availability .btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-      <div class="logo">Family Doctor X</div>
-      <nav>
-          <ul>
-              <li><a href="our-team">Our Team</a></li>
-              <li><a href="services">Services</a></li>
-              <li><a href="testimonials">Testimonials</a></li>
-              <li><a href="contact-us">Contact Us</a></li>
-              <li><a href="manage">Manage</a></li>
-              <li><a href="logout">Logout</a></li>
-          </ul>
-      </nav>
-  </header>
-  <div class="form-container">
-      <h2>Doctor Appointment Form</h2>
-      <p>Please fill out the form to book your appointment.</p>
-      <form action="#" method="post">
-          {% csrf_token %}
-          <div class="form-group">
-              <label for="full-name">Full Name *</label>
-              <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
-          </div>
-          <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-          </div>
-          <div class="form-group">
-              <label for="date">Preferred Appointment Date *</label>
-              <input type="date" id="date" name="date" required>
-          </div>
-          <div class="form-group">
-              <label for="time">Preferred Appointment Time *</label>
-              <input type="time" id="time" name="time" required>
-          </div>
-          <div class="form-group">
-              <label for="department">Select Department *</label>
-              <select id="department" name="department" required>
-                  <option value="">Choose a department</option>
-                  <option value="general-medicine">General Medicine</option>
-                  <option value="cardiology">Cardiology</option>
-                  <option value="neurology">Neurology</option>
-                  <option value="orthopedics">Orthopedics</option>
-                  <option value="pediatrics">Pediatrics</option>
-              </select>
-          </div>
-          <div class="form-group">
-              <label for="message">Reason for Appointment</label>
-              <textarea id="message" name="message" rows="4" placeholder="Provide details about your condition or reason for visit"></textarea>
-          </div>
-          <button type="submit" class="btn">Book Appointment</button>
-      </form>
+    <div class="container">
+        <div class="header">Search Results</div>
+
+        <!-- Doctor 1 -->
+        <div class="doctor-card">
+            <img src="{% static 'imges/d1.png' %}" alt="Dr. Ajayakumar T">
+            <div class="doctor-info">
+                <h3>Dr. Ajayakumar T</h3>
+                <p>Orthopaedics | 18 years exp</p>
+                <p>📍 ASD Fam Hospital</p>
+                <p>🗣️ English, हिंदी, മലയാളം</p>
+                <p>🎓 MBBS, D Ortho, MS Ortho</p>
+            </div>
+            <div class="availability">
+                <p>TUE - SAT | MON</p>
+                <p>08:30 AM - 04:30 PM | 08:30 AM - 06:00 PM</p>
+                <a href="booking.html" class="btn">Book an appointment</a>
+            </div>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="doctor-card">
+            <img src="{% static 'imges/d1.png' %}" alt="Dr. Aravind P Vijayan">
+            <div class="doctor-info">
+                <h3>Dr. Aravind P Vijayan</h3>
+                <p>Orthopaedics | 3 years exp</p>
+                <p>📍 ASD Fam Hospital</p>
+                <p>🗣️ English, हिंदी, മലയാളം</p>
+                <p>🎓 MBBS, DNB (Orthopaedics)</p>
+            </div>
+            <div class="availability">
+                <p>MON - SAT | SUN</p>
+                <p>09:30 AM - 04:30 PM | 09:00 AM - 06:00 PM</p>
+                <a href="booking.html" class="btn">Book an appointment</a>
+            </div>
+        </div>
+
+        <!-- Doctor 3 -->
+        <div class="doctor-card">
+            <img src="{%static 'imges/d2.webp' %}" alt="Dr. Arun Grace Roy">
+            <div class="doctor-info">
+                <h3>Dr. Arun Grace Roy</h3>
+                <p>Pediatrics | 13 years exp</p>
+                <p>📍 ASD Fam Hospital</p>
+                <p>🗣️ English, हिंदी, മലയാളം</p>
+                <p>🎓 MBBS, DNB</p>
+            </div>
+            <div class="availability">
+                <p>SUN - SAT</p>
+                <p>08:30 AM - 05:00 PM</p>
+                <a href="booking.html" class="btn">Book an appointment</a>
+            </div>
+        </div>
+
+<!-- Doctor 4 -->
+<div class="doctor-card">
+    <img src="{%static 'imges/d1.png' %}" alt="Dr. Arun Grace Roy">
+    <div class="doctor-info">
+        <h3>Dr Aziz K S</h3>
+        <p>Respiratory Medicine | 9+ years exp</p>
+        <p>📍 ASD Fam Hospital</p>
+        <p>🗣️ English, हिंदी, മലയാളം</p>
+        <p>🎓 MBBS, MD (General Medicine) DM (Pulmonary Medicine)</p>
+    </div>
+    <div class="availability">
+        <p>SUN - SAT</p>
+        <p>08:30 AM - 05:00 PM</p>
+        <a href="booking.html" class="btn">Book an appointment</a>
+    </div>
+</div>
+
+<!-- Doctor 5 -->
+<div class="doctor-card">
+    <img src="{%static 'imges/d2.webp' %}" alt="Dr. Arun Grace Roy">
+    <div class="doctor-info">
+        <h3>Dr Greeta Miriam Mathai</h3>
+        <p>Ent | 5+ years exp</p>
+        <p>📍 ASD Fam Hospital</p>
+        <p>🗣️ English, हिंदी, മലയാളം</p>
+        <p>🎓 Apollo Adlux Hospital</p>
+    </div>
+    <div class="availability">
+        <p>SUN - SAT</p>
+        <p>08:30 AM - 05:00 PM</p>
+        <a href="booking.html" class="btn">Book an appointment</a>
+    </div>
+</div
+
+
+
+        
   </div>
 </body>
 </html>
