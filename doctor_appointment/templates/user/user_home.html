@@ -178,7 +178,7 @@
                 <li><a href="our Team">Our Team</a></li>
                 <li><a href="Services">Services</a></li>
                 <li><a href="Testimonial">Testimonial</a></li>
-                <li><a href="Contact Us">Contact Us</a></li>
+                <li><a href="Contact ">Contact </a></li>
                 <li><a href="Manage">Manage</a></li>
                 <li><a href="logout">logout</a></li>
             </ul>
@@ -199,157 +199,240 @@
             <img src="{%static 'imges/doctor2.jpg' %}" alt="Doctor">
         </div>
     </section>
-
+--------------------------
+<style>
+    .team-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 20px;
+    }
+    .team-card {
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        color: black;
+    }
+    .team-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    .team-card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+</style>
+</head>
+<body>
+<h1 style="text-align: center;">Our Team</h1>
+<p style="text-align: center;">Rely on established and competent professionals.</p>
+<div class="team-container">
+    <a href="ajayakumar.html" class="team-card">
+        <img src="{%static 'imges/d1.png' %}" alt="Dr Ajayakumar T">
+        <h3>Dr Ajayakumar T</h3>
+        <p>MBBS, D Ortho, MS Ortho</p>
+    </a>
+    <a href="aravind.html" class="team-card">
+        <img src="{%static 'imges/d1.png' %}" alt="Dr Aravind P Vijayan">
+        <h3>Dr Aravind P Vijayan</h3>
+        <p>Orthopaedics</p>
+    </a>
+    <a href="arun.html" class="team-card">
+        <img src="{%static 'imges/d2.webp' %}" alt="Dr Arun Grace Roy">
+        <h3>Dr Arun Grace Roy</h3>
+        <p>Pediatrics</p>
+    </a>
+    <a href="greeta.html" class="team-card">
+        <img src="{%static 'imges/d2.webp' %}" alt="Dr Greeta Miriam Mathal">
+        <h3>Dr Greeta Miriam Mathal</h3>
+        <p>ENT</p>
+    </a>
+</div>
+----------------------------
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f9f9f9;
-        text-align: center;
     }
 
-    .team-section {
-        padding: 50px 20px;
-    }
-
-    .team-section h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        color: #333;
-    }
-
-    .team-section p {
-        font-size: 1.2em;
-        color: #666;
-        margin-bottom: 30px;
-    }
-
-    .team-container {
+    .footer {
+        background-color: #f4f4f4;
+        padding: 20px 40px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         flex-wrap: wrap;
-        gap: 30px;
     }
 
-    .team-member {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 200px;
-        padding: 20px;
-        transition: transform 0.3s ease;
+    .footer-section {
+        flex: 1;
+        margin: 10px;
+        min-width: 200px;
     }
 
-    .team-member:hover {
-        transform: scale(1.05);
-    }
-
-    .team-member img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
+    .footer-section h3 {
+        color: #333;
+        font-size: 18px;
         margin-bottom: 15px;
     }
 
-    .team-member h3 {
-        font-size: 1.2em;
-        color: #333;
-        margin: 5px 0;
+    .footer-section p, .footer-section a {
+        color: #555;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.8;
     }
 
-    .team-member p {
-        font-size: 0.9em;
-        color: #555;
+    .footer-section a:hover {
+        color: #007BFF;
+    }
+
+    .footer-logo img {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .quick-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .quick-links ul li {
+        margin-bottom: 8px;
+    }
+
+    .newsletter input[type="email"] {
+        width: calc(100% - 120px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 5px;
+        font-size: 14px;
+    }
+
+    .newsletter button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .newsletter button:hover {
+        background-color: #218838;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 16px;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    .social-icons .facebook {
+        background-color: #3b5998;
+    }
+
+    .social-icons .linkedin {
+        background-color: #0077b5;
+    }
+
+    .social-icons .twitter {
+        background-color: #1da1f2;
+    }
+
+    .social-icons .youtube {
+        background-color: #ff0000;
+    }
+
+    .social-icons .instagram {
+        background-color: #e4405f;
     }
 </style>
 </head>
 <body>
-<div class="team-section">
-    <h1>Our Team</h1>
-    <p>Rely on established and competent professionals.</p>
-    <div class="team-container">
-        <div class="team-member">
-            <img src="{%static 'imges/Untitled.jpg' %}" alt="Dr Sai">
-            <h3>Dr Sai</h3>
-            <p>Consultant Anesthesiologist</p>
-        </div>
-        <div class="team-member">
-            <img src="{%static 'imges/ourteam2.jpg' %}" alt="Dr Samuel">
-            <h3>Dr Samuel</h3>
-            <p>Consultant Cardiothoracic</p>
-        </div>
-        <div class="team-member">
-            <img src="{%static 'imges/ourteam3.jpg' %}" alt="Dr Sarra">
-            <h3>Dr Sarra</h3>
-            <p>Consultant Dermatologist</p>
-        </div>
-        <div class="team-member">
-            <img src="{%static 'imges/ourteam4.jpg' %}" alt="Dr John">
-            <h3>Dr John</h3>
-            <p>Consultant Obstetrician</p>
+<footer class="footer">
+    <!-- Logo and Address Section -->
+    <div class="footer-section footer-logo">
+        <img src="logo.png" alt="Contact Doctor Logo">
+        <p>Accessible, Affordable & Quality Medical Care For All.</p>
+        <p>
+            <strong>Registered Office:</strong><br>
+            168-176, MTH Road, Villivakkam,<br>
+            Chennai-49, TN, India<br>
+            <strong>Phone:</strong> (91) 87546 92205<br>
+            <strong>Email:</strong> <a href="mailto:info@contactdoctor.in">info@contactdoctor.in</a><br>
+            <a href="mailto:support@contactdoctor.in">support@contactdoctor.in</a>
+        </p>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="footer-section quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+        </ul>
+    </div>
+
+    <!-- Specialist Links Section -->
+    <div class="footer-section quick-links">
+        <h3>Specialist Links</h3>
+        <ul>
+            <li><a href="#general">List of General Physicians</a></li>
+            <li><a href="#dentists">List of Dentists</a></li>
+            <li><a href="#pediatrics">List of Pediatricians</a></li>
+            <li><a href="#gynaecologists">List of Gynaecologists</a></li>
+            <li><a href="#orthopedists">List of Orthopedists</a></li>
+            <li><a href="#cardiologists">List of Cardiologists</a></li>
+            <li><a href="#ophthalmologists">List of Ophthalmologists</a></li>
+            <li><a href="#ayurvedics">List of Ayurvedics</a></li>
+        </ul>
+    </div>
+
+    <!-- Newsletter and Social Media Section -->
+    <div class="footer-section newsletter">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Get Important News & Amazing Offers</p>
+        <form>
+            <input type="email" placeholder="Enter your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <div class="social-icons">
+            <a href="{%static 'imges/facebook-logo.png' %}" class="facebook" title="Facebook">F</a>
+            <a href="https://linkedin.com" class="linkedin" title="LinkedIn">L</a>
+            <a href="https://twitter.com" class="twitter" title="Twitter">T</a>
+            <a href="https://youtube.com" class="youtube" title="YouTube">Y</a>
+            <a href="https://instagram.com" class="instagram" title="Instagram">I</a>
         </div>
     </div>
-</div>
+</footer>
+
 --------------------------
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .testimonial {
-        text-align: center;
-        padding: 50px 20px;
-        background-color: #f8f9fa;
-    }
-
-    .testimonial h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-
-    .testimonial img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-    }
-
-    .testimonial p {
-        font-size: 1rem;
-        color: #6c757d;
-        margin-bottom: 20px;
-        line-height: 1.5;
-    }
-
-    .testimonial h5 {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #343a40;
-    }
-</style>
-</head>
-<body>
-<div class="testimonial">
-    <h2>Satisfied Patients</h2>
-    <img src="https://via.placeholder.com/100" alt="Profile Image">
-    <h5>Michael Holz</h5>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam faucibus mauris id tempor egestas. 
-        Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa.
-    </p>
-   
-</div>
-
-----------------------------
-
-    
     
 
                

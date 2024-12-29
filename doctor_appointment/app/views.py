@@ -70,3 +70,7 @@ def booking_view(request):
    
 def book_appointment(request):
     return render(request, 'booking/book_appointment.html') 
+
+ 
+def Contact(request):
+    return render(request, 'Contact.html')
