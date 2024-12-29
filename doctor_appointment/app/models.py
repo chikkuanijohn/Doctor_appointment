@@ -9,3 +9,6 @@ class Doctor(models.Model):
     available_days = models.CharField(max_length=100)  
     available_time_start = models.TimeField()
     available_time_end = models.TimeField()
+
+
+

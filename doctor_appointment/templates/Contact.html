@@ -3,174 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Banner</title>
+    <title>Contact Us</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
+            margin: 20px;
         }
-
-        .contact-banner {
-            background-color: #003b47; /* Dark teal background color */
-            color: #ffffff; /* White text color */
-            padding: 40px 20px;
+        .container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-
-        .contact-banner h1 {
-            font-size: 36px;
-            margin: 0;
+        .form-container, .map-container {
+            flex: 1;
+            min-width: 300px;
         }
-
-        .contact-banner p {
-            margin: 5px 0 0;
-            font-size: 18px;
-            color: #b5c6c9; /* Light gray text for the subtitle */
+        form {
+            display: flex;
+            flex-direction: column;
         }
-
-        .breadcrumb {
-            color: #b5c6c9;
+        input, textarea, select, button {
+            margin: 10px 0;
+            padding: 10px;
             font-size: 16px;
         }
-
-        .breadcrumb a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .contact-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .breadcrumb {
-                margin-top: 20px;
-            }
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
         }
     </style>
 </head>
 <body>
-    <div class="contact-banner">
-        <div>
-            <h1>Contact</h1>
-            <p>Get in Touch with Us</p>
+    <h1>Contact Us</h1>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-container">
+            <form action="send_email.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <label for="context">Context:</label>
+                <select id="context" name="context" required>
+                    <option value="">-- Select One --</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Support</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+
+                <div>
+                    <label>
+                        <input type="checkbox" required> I'm not a robot
+                    </label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
         </div>
-        <div class="breadcrumb">
-            <a href="user_home">Home</a> / Contact
+
+        <!-- Map Section -->
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31109.848479103265!2d80.20261080390783!3d13.09029419593627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5264fb70b69f47%3A0x4e6bfb07c42e9fd2!2sVillivakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600049!5e0!3m2!1sen!2sin!4v1702012345678!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
-    ---------------------
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        .form-container {
-            max-width: 500px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        form input,
-        form select,
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        form input:focus,
-        form select:focus,
-        form textarea:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-
-        .recaptcha {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Send us an Email</h2>
-        <form action="#" method="post">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Contact email-id" required>
-
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-
-            <label for="context">Context</label>
-            <select id="context" name="context" required>
-                <option value="" disabled selected>-- Select One --</option>
-                <option value="general">General Inquiry</option>
-                <option value="support">Support</option>
-                <option value="feedback">Feedback</option>
-            </select>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
-
-            <div class="recaptcha">
-                <input type="checkbox" id="not-robot" required>
-                <label for="not-robot">I'm not a robot</label>
-            </div>
-
-            <button type="submit">Send</button>
-        </form>
-    </div>
-
 </body>
 </html>

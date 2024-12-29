@@ -10,4 +10,7 @@ urlpatterns=[
     path('booking/',views.booking_view),
     path('booking/book_appointment/', views.book_appointment),  
     path('Contact/',views.Contact),
+    path('view_bookings',views.view_bookings),
+    path('add_product',views.add_product),
+    path('Services/',views.Services),
 ]                     

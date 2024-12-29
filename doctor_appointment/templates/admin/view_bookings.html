@@ -175,7 +175,7 @@
         <div class="logo">Family Doctor X</div>
         <nav>
             <ul>
-                <li><a href="add_product">add_product</a></li>
+                <li><a href="add product">add_product</a></li>
                 <!-- <li><a href="">Services</a></li> -->
                 <li><a href="view_bookings">view_bookings</a></li>
                 <!-- <li><a href="Contact Us">Contact Us</a></li>
@@ -188,30 +188,30 @@
             <div class="badge">6</div>
         </div> -->
     </header>
-    <!-- <section class="main">
-        <div class="content">
-            <h1>Exceptional Medical Care for All Ages.</h1>
-            <p>At our Medical Center, we combine world-class medicine with compassionate care.</p>
-            <a href="#" class="btn">Book an appointment</a>
-        </div>
-        <div class="image">
-            <img src="{%static 'imges/doctor2.jpg' %}" alt="Doctor">
-        </div>
-    </section>
-    <div class="container mt-4">
+      <div class="container">
         <div class="row">
-            {% for pro in Products %}
-            <div class="card" style="width: 400px;">
-                <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width: 100%">
-                <div class="card-body">
-                    <h4 class="card-title">{{pro.name}}</h4>
-                    <p class="card-text">{{pro.des}}</p>
-                    <a href="edit_product/{{pro.pk}}" class="btn btn-primary">Edit</a>
-                    <a href="delete_product/{{pro.pk}}" class="btn-primary">Delete</a>
-                </div>
-            </div>
-            {% endfor %}
+          {% for i in view_bookings %}
+          <div class="col-lg-12">
+            <img src="{{ i.product.img.url }}" alt="product image">
+          </div>
+          <div class="col-md-7">
+            <h1 class="mb-3">{{i.product.name}}</h1>
+            <p>price:<span class="text-success fw-">${{br.offer_price}}</span></p>
+            <p>date:<span class="text-success fw-">${{br.date}}</span></p>
+            <p>qty:<span class="text-success fw-">${{br.qty}}</span></p>
+
+
+          </div>
+            <!-- Name:{{i.product.name}} 
+            price:{{i.product.offer_price}} <br> -->
+           
+          </div>
+          {% endfor %}
+  
         </div>
-    </div> -->
+        
+  
+  
+      </div> 
 </body>
 </html>

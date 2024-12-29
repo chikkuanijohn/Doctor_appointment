@@ -74,3 +74,34 @@ def book_appointment(request):
  
 def Contact(request):
     return render(request, 'Contact.html')
+
+
+def Services(request):
+    return render(request,'Services.html')
+
+def view_bookings(request):
+    # buy=Buy.objects.all()[::-1]
+    return render(request,'admin/view_bookings.html')
+
+
+def add_product(req):
+    if 'admin' in req.session:
+        if req.method == 'POST':
+            pid = req.POST['pid']
+            name = req.POST['name']
+            discrip = req.POST['descrip']
+            price = req.POST['price']
+            offer_price = req.POST['off_price']
+            stock = req.POST['stock']
+            file = req.FILES['img']
+
+            data = Product.objects.create(
+                pid=pid, name=name, dis=discrip, price=price,
+                offer_price=offer_price, stock=stock, img=file
+            )
+            data.save()
+            return redirect(admin_home)
+        else:
+            return render(req, 'admin/add_product.html')
+    else:
+        return redirect(doctor_appointment_login)
