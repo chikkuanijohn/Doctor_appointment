@@ -8,11 +8,15 @@ urlpatterns=[
     path('user_home',views.user_home),
     path('register/',views.register),
     path('booking/',views.booking_view),
-    path('booking/book_appointment/', views.book_appointment),  
+    path('book_appointment/', views.book_appointment),  
     path('Contact/',views.Contact),
     path('view_bookings',views.view_bookings),
     path('add_details',views.add_details),
     path('Services/',views.Services),
-    path('edit_details/<pid>', views.add_details),  
-    path('delete_details/<pid>',views.delete_details),
+    path('Manage/',views.Manage),
+    path('Our_Team/',views.Our_Team),
+    path('edit_details/', views.add_details),
+    path('delete_doctor', views.delete_doctor),
+    
+
 ]                     

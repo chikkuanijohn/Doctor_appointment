@@ -14,43 +14,44 @@
          <h2 class="text-center mb-4">Edit Product</h2>
          <form action="" method="post" class="p-4 shadow-sm bg-white rounded" enctype="multipart/form-data">
              {% csrf_token %}
-             <div class="form-group">
+             <!-- <div class="form-group">
                  <label for="pid"><b>Product ID</b></label>
                  <input type="text" class="form-control" name="proid" id="pid" placeholder="Enter product ID" required value="{{data.pid}}">
              </div>
+  -->
+             <div class="form-group">
+                 <label for="name"><b>Doctor Name</b></label>
+                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter Doctor name" required value="{{data.name}}">
+             </div>
+             <div class="form-group">
+                <label for="specialty"><b>specialty</b></label>
+                <input type="number" class="form-control" name="price" id="specialty" placeholder="Enter specialty" required value="{{data.specialty}}">
+            </div>
+ 
+             
  
              <div class="form-group">
-                 <label for="name"><b>Product Name</b></label>
-                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter product name" required value="{{data.name}}">
+                 <label for="available_days"><b>available_days</b></label>
+                 <input type="number" class="form-control" name="available_days" id="available_days" placeholder="Enter available_days" required value="{{data.available_days}}">
              </div>
  
              <div class="form-group">
-                 <label for="descrip"><b>Description</b></label>
-                 <textarea class="form-control" name="descrip" id="descrip" rows="3" placeholder="Enter product description" required>{{data.des}}</textarea>
+                 <label for="available_time_start"><b>available_time_start</b></label>
+                 <input type="time" class="form-control" name="available_time_start" id="available_time_start" placeholder="Enter available_time_start"value="{{data.available_time_start}}">
              </div>
  
              <div class="form-group">
-                 <label for="price"><b>Price</b></label>
-                 <input type="number" class="form-control" name="price" id="price" placeholder="Enter price" required value="{{data.price}}">
+                 <label for="available_time_end"><b>available_time_end</b></label>
+                 <input type="time" class="form-control" name="available_time_end" id="available_time_end" placeholder="Enter available_time_end" required value="{{data.available_time_end}}">
              </div>
  
-             <div class="form-group">
-                 <label for="offer_price"><b>Offer Price</b></label>
-                 <input type="number" class="form-control" name="off_price" id="offer_price" placeholder="Enter offer price"value="{{data.offer_price}}">
-             </div>
- 
-             <div class="form-group">
-                 <label for="stock"><b>Stock</b></label>
-                 <input type="number" class="form-control" name="stock" id="stock" placeholder="Enter stock quantity" required value="{{data.stock}}">
-             </div>
- 
-             <div class="form-group">
+             <!-- <div class="form-group">
                  <label for="image"><b>Image</b></label>
                  <input type="file" class="form-control-file" name="img" id="image" >
              </div>
              <div>
                 <img src="{{data.img.url}}" alt="" style="width: 100px; height: 100px;">
-             </div>
+             </div> -->
  
              <button type="submit" class="btn btn-primary btn-block">submit</button>
          </form>

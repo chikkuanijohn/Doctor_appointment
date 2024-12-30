@@ -70,7 +70,7 @@ def booking_view(request):
     return render(request, 'booking.html') 
    
 def book_appointment(request):
-    return render(request, 'booking/book_appointment.html') 
+    return render(request,'book_appointment.html') 
 
  
 def Contact(request):
@@ -79,6 +79,13 @@ def Contact(request):
 
 def Services(request):
     return render(request,'Services.html')
+
+def Manage(request):
+    return render(request,'Manage.html')
+
+def Our_Team(request):
+    return render(request,'Our_Team.html')
+
 
 def view_bookings(request):
     # buy=Buy.objects.all()[::-1]
@@ -109,8 +116,8 @@ def add_details(req):
         return redirect(doctor_appointment_login)
     
 
-def edit_details(req, pid):
-    if 'admin' in req.session:
+def edit_product(req, pid):
+    if 'shop' in req.session:
         if req.method == 'POST':
             name = req.POST['name']
             discrip = req.POST['descrip']
@@ -119,19 +126,18 @@ def edit_details(req, pid):
             stock = req.POST['stock']
             file = req.FILES.get('img')  
             if file:
-                Doctor.objects.filter(pk=pid).update(pid=id,name=name,descrip=discrip,price=price,off_price=offer_price,stock=stock,img=file)
-                data=Doctor.objects.get(pk=pid)
+                Product.objects.filter(pk=pid).update(pid=id,name=name,descrip=discrip,price=price,off_price=offer_price,stock=stock,img=file)
+                data=Product.  objects.get(pk=pid)
                 data.img=file
                 data.save()
             else:  
-                Doctor.objects.filter(pk=pid).update(pid=pid,name=name,descrip=discrip,price=price,offer_price=offer_price,stock=stock,img=file)
-            return redirect(admin_home)
+                Product.objects.filter(pk=pid).update(pid=pid,name=name,descrip=discrip,price=price,offer_price=offer_price,stock=stock,img=file)
+            return redirect(shop_home)
         else:
-            data=Doctor.objects.get(pk=pid)
-            return render(req,'admin/edit_details.html',{'data':data})
-        
+            data=Product.objects.get(pk=pid)
+            return render(req,'shop/edit_product.html',{'data':data})
 
-def delete_details(req,pid):
+def delete_doctor(req,pid):
     data=Doctor.objects.get(pk=pid)
     # file=data.img.url
     # file=file.split('/')[-1]

@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <h1>Haiiiiiiiiii</h1>
+
+
+<style>
+    .team-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 20px;
+    }
+    .team-card {
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        color: black;
+    }
+    .team-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    .team-card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+</style>
+</head>
+<body>
+    <h1 style="text-align: center;">Our Team</h1>
+    <p style="text-align: center;">Rely on established and competent professionals dedicated to providing exceptional care and expertise.</p>
+    <div class="team-container">
+        <a href="ajayakumar.html" class="team-card">
+            <img src="" alt="Dr Ajayakumar T">
+            <h3>Dr Ajayakumar T</h3>
+            <p>MBBS, D Ortho, MS Ortho</p>
+            <p>With over 15 years of experience in orthopedic surgery, Dr. Ajayakumar specializes in joint replacement and trauma care. His commitment to patient-centered care ensures optimal outcomes for every individual.</p>
+        </a>
+        <a href="aravind.html" class="team-card">
+            <img src="" alt="Dr Aravind P Vijayan">
+            <h3>Dr Aravind P Vijayan</h3>
+            <p>Orthopaedics</p>
+            <p>Dr. Aravind is a skilled orthopedic surgeon with expertise in sports injuries and minimally invasive procedures. He is known for his compassionate approach and dedication to restoring mobility.</p>
+        </a>
+        <a href="arun.html" class="team-card">
+            <img src="" alt="Dr Arun Grace Roy">
+            <h3>Dr Arun Grace Roy</h3>
+            <p>Pediatrics</p>
+            <p>Dr. Arun is a highly regarded pediatrician who brings a wealth of knowledge in child development and preventive healthcare. Parents trust his patient-focused approach to ensure the wellbeing of their children.</p>
+        </a>
+        <a href="greeta.html" class="team-card">
+            <img src="" alt="Dr Greeta Miriam Mathal">
+            <h3>Dr Greeta Miriam Mathal</h3>
+            <p>ENT</p>
+            <p>Dr. Greeta specializes in diagnosing and treating ear, nose, and throat conditions. Her expertise includes advanced surgical techniques and personalized care for patients of all ages.</p>
+        </a>
+    </div>
+    
+
 </body>
 </html>
