@@ -175,7 +175,7 @@
         <div class="logo">Family Doctor X</div>
         <nav>
             <ul>
-                <li><a href="add_product">add_product</a></li>
+                <li><a href="add_details">add_details</a></li>
                 <!-- <li><a href="">Services</a></li> -->
                 <li><a href="view_bookings">view_bookings</a></li>
                 <!-- <li><a href="Contact Us">Contact Us</a></li>
@@ -188,30 +188,24 @@
             <div class="badge">6</div>
         </div> -->
     </header>
-    <!-- <section class="main">
-        <div class="content">
-            <h1>Exceptional Medical Care for All Ages.</h1>
-            <p>At our Medical Center, we combine world-class medicine with compassionate care.</p>
-            <a href="#" class="btn">Book an appointment</a>
-        </div>
-        <div class="image">
-            <img src="{%static 'imges/doctor2.jpg' %}" alt="Doctor">
-        </div>
-    </section>
-    <div class="container mt-4">
+    <div class="container mt-3">
         <div class="row">
-            {% for pro in Products %}
-            <div class="card" style="width: 400px;">
-                <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width: 100%">
-                <div class="card-body">
-                    <h4 class="card-title">{{pro.name}}</h4>
-                    <p class="card-text">{{pro.des}}</p>
-                    <a href="edit_product/{{pro.pk}}" class="btn btn-primary">Edit</a>
-                    <a href="delete_product/{{pro.pk}}" class="btn-primary">Delete</a>
-                </div>
+          {% for pro in Doctor %}
+            <div class="card" style="width: 400px; margin-bottom: 20px;">
+              <!-- Uncomment the line below if images are available -->
+              <!-- <img class="card-img-top" src="{{ pro.img.url }}" alt="Doctor Image" style="width: 100%;"> -->
+              <div class="card-body">
+                <h4 class="card-title">{{ pro.name }}</h4>
+                <p class="card-text">{{ pro.dis }}</p>
+                <h5 class="card-title">Speciality: {{ pro.speciality }}</h5>
+                <p class="card-text">Available Days: {{ pro.available_days }}</p>
+                <p class="card-text">Time: {{ pro.available_time_start }} - {{ pro.available_time_end }}</p>
+                <a href="edit-doctor/{{ pro.pk }}" class="btn btn-primary">Edit</a>
+                <a href="delete-doctor/{{ pro.pk }}" class="btn btn-primary">Delete</a>
+              </div>
             </div>
-            {% endfor %}
+          {% endfor %}
         </div>
-    </div> -->
-</body>
-</html>
+      </div>
+</body>  
+</html>    

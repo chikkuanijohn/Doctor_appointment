@@ -53,6 +53,7 @@ def register(req):
         uname=req.POST['uname']
         email=req.POST['email']
         pswd=req.POST['pswd']
+        print(uname,email,pswd)
         try:
             data=User.objects.create_user(first_name=uname,email=email,username=email,password=pswd)
             data.save()
@@ -84,24 +85,56 @@ def view_bookings(request):
     return render(request,'admin/view_bookings.html')
 
 
-def add_product(req):
+def add_details(req):
     if 'admin' in req.session:
         if req.method == 'POST':
-            pid = req.POST['pid']
+           
+            name = req.POST['name']
+            specialty = req.POST['specialty']
+             
+            available_days = req.POST['available_days']
+            available_time_start = req.POST['available_time_start']
+            available_time_end= req.POST['available_time_end']
+            # file = req.FILES['img']
+
+            data = Doctor.objects.create(
+                 name=name, specialty=specialty,  available_days= available_days,
+                available_time_start=available_time_start,available_time_end=available_time_end)
+               
+            data.save()
+            return redirect(admin_home)
+        else:
+            return render(req, 'admin/add_details.html')
+    else:
+        return redirect(doctor_appointment_login)
+    
+
+def edit_details(req, pid):
+    if 'admin' in req.session:
+        if req.method == 'POST':
             name = req.POST['name']
             discrip = req.POST['descrip']
             price = req.POST['price']
             offer_price = req.POST['off_price']
             stock = req.POST['stock']
-            file = req.FILES['img']
-
-            data = Product.objects.create(
-                pid=pid, name=name, dis=discrip, price=price,
-                offer_price=offer_price, stock=stock, img=file
-            )
-            data.save()
+            file = req.FILES.get('img')  
+            if file:
+                Doctor.objects.filter(pk=pid).update(pid=id,name=name,descrip=discrip,price=price,off_price=offer_price,stock=stock,img=file)
+                data=Doctor.objects.get(pk=pid)
+                data.img=file
+                data.save()
+            else:  
+                Doctor.objects.filter(pk=pid).update(pid=pid,name=name,descrip=discrip,price=price,offer_price=offer_price,stock=stock,img=file)
             return redirect(admin_home)
         else:
-            return render(req, 'admin/add_product.html')
-    else:
-        return redirect(doctor_appointment_login)
+            data=Doctor.objects.get(pk=pid)
+            return render(req,'admin/edit_details.html',{'data':data})
+        
+
+def delete_details(req,pid):
+    data=Doctor.objects.get(pk=pid)
+    # file=data.img.url
+    # file=file.split('/')[-1]
+    # os.remove('media/'+file)
+    data.delete()
+    return redirect(admin_home)

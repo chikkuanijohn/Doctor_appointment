@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Doctor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.TextField()
     specialty = models.CharField(max_length=100)
     contact_number = models.CharField(max_length=15)
     available_days = models.CharField(max_length=100)  
@@ -12,3 +12,7 @@ class Doctor(models.Model):
 
 
 
+class Patient(models.Model):
+    Patient_name = models.CharField(max_length=100)
+    age  = models.PositiveIntegerField()
+    contact_number = models.CharField(max_length=15)

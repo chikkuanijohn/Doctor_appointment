@@ -101,10 +101,12 @@
   </style>
 </head>
 <body>
-
+  
   <div class="login-card">
     <h1>WELCOME</h1>
     <form action="" method="post">
+      {% csrf_token %}
+
       <div class="mb-3">
         <input type="text" class="form-control" placeholder="Username" required name="uname">
       </div>

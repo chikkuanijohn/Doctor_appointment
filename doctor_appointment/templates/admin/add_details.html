@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Add <Details></Details> Page</title>
+     
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ </head>
+ 
+ <body>
+     <div class="container mt-5">
+         <h2 class="text-center mb-4">Add <Details></Details></h2>
+         
+         <form action="" method="post" class="p-4 shadow-sm bg-white rounded" enctype="multipart/form-data">
+             {% csrf_token %}
+             <!-- <div class="form-group">
+                 <label for="id"><b> ID</b></label>
+                 <input type="text" class="form-control" name="pid" id="pid" placeholder="Enter Details ID">
+             </div> -->
+ 
+             <div class="form-group">
+                 <label for="name"><b>Doctor Name</b></label>
+                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter Doctor name">
+             </div>
+ 
+             <div class="form-group">
+                 <label for="specialty"><b>specialty</b></label>
+                 <textarea class="form-control" name="specialty" id="specialty" rows="3" placeholder="Enter Doctor specialty"></textarea>
+             </div>
+
+             <div class="form-group">
+                <label for=" available_days"><b> available_days</b></label>
+                <textarea class="form-control" name=" available_days" id=" available_days" rows="3" placeholder="Enter  available_days"></textarea>
+            </div>
+
+             <!-- <div class="form-group">
+                 <label for="Availiable_Days"><b>Availiable_Days</b></label>
+                 <input type="number" class="form-control" name="Availiable_Days" id="price" placeholder="Enter Availiable_Days">
+             </div> -->
+ 
+             <div class="form-group">
+                 <label for="available_time_start"><b>available_time_start</b></label>
+                 <input type="time" class="form-control" name="available_time_start" id="available_time_start" placeholder="available_time_start">
+             </div>
+ 
+             <div class="form-group">
+                 <label for="available_time_end"><b>available_time_end</b></label>
+                 <input type="time" class="form-control" name="available_time_end" id="available_time_end" placeholder="Enter available_time_end">
+             </div>
+ 
+             <!-- <div class="form-group">
+                 <label for="image"><b>Image</b></label>
+                 <input type="file" class="form-control-file" name="img" id="image">
+             </div>
+  -->
+             <button type="submit" class="btn btn-primary btn-block">Add Details</button>
+         </form>
+     </div>
+ 
+     
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+ 
+</html>
