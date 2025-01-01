@@ -77,14 +77,17 @@ def Contact(request):
     return render(request, 'Contact.html')
 
 
-def Services(request):
-    return render(request,'Services.html')
+def check_up_packages(request):
+    return render(request,'check_up_packages.html')
 
 def Manage(request):
     return render(request,'Manage.html')
 
 def Our_Team(request):
     return render(request,'Our_Team.html')
+
+def Our_Specialities(request):
+    return render(request,'Our_Specialities.html')
 
 
 def view_bookings(request):
@@ -116,28 +119,28 @@ def add_details(req):
         return redirect(doctor_appointment_login)
     
 
-def edit_product(req, pid):
-    if 'shop' in req.session:
+def edit_details(req, pid):
+    if 'admin' in req.session:
         if req.method == 'POST':
             name = req.POST['name']
-            discrip = req.POST['descrip']
-            price = req.POST['price']
-            offer_price = req.POST['off_price']
-            stock = req.POST['stock']
-            file = req.FILES.get('img')  
-            if file:
-                Product.objects.filter(pk=pid).update(pid=id,name=name,descrip=discrip,price=price,off_price=offer_price,stock=stock,img=file)
-                data=Product.  objects.get(pk=pid)
-                data.img=file
-                data.save()
-            else:  
-                Product.objects.filter(pk=pid).update(pid=pid,name=name,descrip=discrip,price=price,offer_price=offer_price,stock=stock,img=file)
-            return redirect(shop_home)
+            specialty = req.POST['specialty']
+            available_days = req.POST['available_days']
+            available_time_start = req.POST['available_time_start']
+            available_time_end = req.POST['available_time_end']
+            # file = req.FILES.get('img')  
+            # if file:
+            #     Doctor.objects.filter(pk=pid).update(name=name,specialty=specialty,available_days=available_days, available_time_start= available_time_start,available_time_end =available_time_end)
+            #     data=Doctor.objects.get(pk=pid)
+            #     data.img=file
+            #     data.save()
+            # else:  
+            Doctor.objects.filter(pk=pid).update(name=name,specialty=specialty,available_days=available_days, available_time_start= available_time_start,available_time_end =available_time_end)
+            return redirect(admin_home)
         else:
-            data=Product.objects.get(pk=pid)
-            return render(req,'shop/edit_product.html',{'data':data})
+            data=Doctor.objects.get(pk=pid)
+            return render(req,'admin/edit_Doctor.html',{'data':data})
 
-def delete_doctor(req,pid):
+def delete_details(req,pid):
     data=Doctor.objects.get(pk=pid)
     # file=data.img.url
     # file=file.split('/')[-1]

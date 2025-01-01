@@ -193,15 +193,17 @@
           {% for pro in Doctor %}
             <div class="card" style="width: 400px; margin-bottom: 20px;">
               <!-- Uncomment the line below if images are available -->
-              <!-- <img class="card-img-top" src="{{ pro.img.url }}" alt="Doctor Image" style="width: 100%;"> -->
-              <div class="card-body">
-                <h4 class="card-title">{{ pro.name }}</h4>
-                <p class="card-text">{{ pro.dis }}</p>
-                <h5 class="card-title">Speciality: {{ pro.speciality }}</h5>
-                <p class="card-text">Available Days: {{ pro.available_days }}</p>
-                <p class="card-text">Time: {{ pro.available_time_start }} - {{ pro.available_time_end }}</p>
-                <a href="edit-doctor/{{ pro.pk }}" class="btn btn-primary">Edit</a>
-                <a href="delete-doctor/{{ pro.pk }}" class="btn btn-primary">Delete</a>
+              <!-- <img class="card-img-top" src="{{ pro.img.url }}" alt="Doctor Image" style="width: 100%;">
+              <div class="card-body"> -->
+                <h4 class="card-title">{{pro.name }}</h4>
+                <!-- <p class="card-text">{{ Doctor.dis }}</p> -->
+                <h5 class="card-title">Speciality: {{pro.speciality }}</h5>
+                <p class="card-text">Available Days: {{pro.available_days }}</p>
+                <p class="card-text">Time: {{pro.available_time_start }} - {{pro.available_time_end }}</p>
+                <a href="edit-details{{pro.pk }}" class="btn btn-primary">Edit</a>
+                <a href="delete-details{{pro.pk }}" class="btn btn-primary">Delete</a> 
+                 
+
               </div>
             </div>
           {% endfor %}
