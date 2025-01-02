@@ -197,11 +197,13 @@
               <div class="card-body"> -->
                 <h4 class="card-title">{{pro.name }}</h4>
                 <!-- <p class="card-text">{{ Doctor.dis }}</p> -->
-                <h5 class="card-title">Speciality: {{pro.speciality }}</h5>
+                <h5 class="card-title">speciality: {{pro.specialty }}</h5>
+               
+
                 <p class="card-text">Available Days: {{pro.available_days }}</p>
                 <p class="card-text">Time: {{pro.available_time_start }} - {{pro.available_time_end }}</p>
-                <a href="edit-details{{pro.pk }}" class="btn btn-primary">Edit</a>
-                <a href="delete-details{{pro.pk }}" class="btn btn-primary">Delete</a> 
+                <a href="edit_details/{{pro.pk }}" class="btn btn-primary">Edit</a>
+                <a href="delete_details/{{pro.pk }}" class="btn btn-primary">Delete</a> 
                  
 
               </div>

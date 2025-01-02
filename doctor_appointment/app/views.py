@@ -45,8 +45,17 @@ def admin_home(req):
     else:
        return redirect(doctor_appointment_login)
     
-def user_home  (req)  :
-    return render(req,'user/user_home.html')
+    
+def user_home(req)  :
+    if 'user' in req.session:
+        Doctor=Doctor.objects.all()
+        return render(req,'user/user_home.html',{'Doctor':Doctor})
+    else:
+        return redirect(doctor_appointment_login)
+
+
+
+
 
 def register(req):
     if req.method=='POST':
@@ -89,13 +98,20 @@ def Our_Team(request):
 def Our_Specialities(request):
     return render(request,'Our_Specialities.html')
 
+def booking(request):
+    return render(request,'booking.html')
+
 
 def view_bookings(request):
     # buy=Buy.objects.all()[::-1]
     return render(request,'admin/view_bookings.html')
 
+def view_doc(request):
+    return render(request,'view_doc.html')
+
 
 def add_details(req):
+
     if 'admin' in req.session:
         if req.method == 'POST':
            
@@ -135,10 +151,12 @@ def edit_details(req, pid):
             #     data.save()
             # else:  
             Doctor.objects.filter(pk=pid).update(name=name,specialty=specialty,available_days=available_days, available_time_start= available_time_start,available_time_end =available_time_end)
+            data=Doctor.objects.get(pk=pid)
+            data.save()
             return redirect(admin_home)
         else:
             data=Doctor.objects.get(pk=pid)
-            return render(req,'admin/edit_Doctor.html',{'data':data})
+            return render(req,'admin/edit.html',{'data':data})
 
 def delete_details(req,pid):
     data=Doctor.objects.get(pk=pid)
