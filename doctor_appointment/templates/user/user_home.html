@@ -177,7 +177,7 @@
             <ul>
                 <li><a href="Our_Team">Our_Team</a></li>
                 <li><a href="check_up_packages">check_up_packages</a></li>
-                <li><a href="Our_Specialities">Our_Specialities</a></li>
+                <li><a href="Testimonals">Testimonals</a></li>
                 <li><a href="Contact ">Contact </a></li>
                 <li><a href="Manage">Manage</a></li>
                 <li><a href="logout">logout</a></li>
@@ -225,6 +225,109 @@
       {% endfor %}
     </div>
   </div>
+--------------------------------
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    .services-section {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #ffffff;
+    }
+    .services-section h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #333333;
+    }
+    .services-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .service-card {
+        background-color: #fef2f2;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 250px;
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+    .service-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 15px;
+    }
+    .service-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    .service-card h3 {
+        font-size: 1.2em;
+        color: #333333;
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        font-size: 0.9em;
+        color: #666666;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+<div class="services-section">
+    <h1>24 X 7 Services</h1>
+    <div class="services-container">
+        <!-- ICU Card -->
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046756.png" alt="ICU Icon">
+            </div>
+            <h3>ICU</h3>
+            <p>Our ICU services are at the core of many life-saving treatments. Patients are monitored round the clock in sterile, infection-safe environments.</p>
+        </div>
+        <!-- Ambulance Card -->
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965358.png" alt="Ambulance Icon">
+            </div>
+            <h3>Ambulance</h3>
+            <p>Our critical care ambulances provide timely and quality pre-hospital emergency care/interhospital transfer for serious and injured patients.</p>
+        </div>
+        <!-- Radiological Investigations Card -->
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/841/841853.png" alt="Radiology Icon">
+            </div>
+            <h3>Radiological Investigations</h3>
+            <p>Experience unparalleled convenience with our 24/7 radiological investigations. Accurate and prompt results any time, day or night.</p>
+        </div>
+        <!-- Pharmacy Card -->
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3394/3394185.png" alt="Pharmacy Icon">
+            </div>
+            <h3>Pharmacy</h3>
+            <p>Available round the clock, our pharmacy is well-stocked with high-quality medicines manned by competent staff.</p>
+        </div>
+    </div>
+</div>
 </body>  
 </html>    
 

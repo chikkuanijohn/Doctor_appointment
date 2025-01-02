@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Patients</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+
+        .testimonial-section {
+            width: 100%;
+            padding: 60px 20px;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin: 40px auto;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box;
+            opacity: 0.8;
+            transform: scale(0.95);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .testimonial-card.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .testimonial-image img {
+            max-width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-title {
+            color: #2e7d72;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-subtitle {
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-quote {
+            color: #444;
+            font-size: 16px;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 0 auto 20px;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: "“";
+            font-size: 50px;
+            color: #f39c12;
+            position: absolute;
+            left: -20px;
+            top: -10px;
+        }
+
+        .testimonial-quote::after {
+            content: "”";
+            font-size: 50px;
+            color: #f39c12;
+            position: absolute;
+            right: -20px;
+            bottom: -10px;
+        }
+
+        .testimonial-author {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2e7d72;
+            margin-top: 10px;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .carousel-btn {
+            background-color: #2e7d72;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: #1e5e55;
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-quote {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+
+            .testimonial-title {
+                font-size: 24px;
+            }
+
+            .carousel-btn {
+                padding: 10px 15px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="testimonial-section">
+        <div class="testimonial-carousel" id="carousel">
+            <div class="testimonial-card active">
+                <div class="testimonial-image">
+                    <img src="{%static 'imges/testg2.png' %}" alt="Patient Image">
+                </div>
+                <h2 class="testimonial-title">HAPPY PATIENTS</h2>
+                <p class="testimonial-subtitle">Patient Testimonials and Reviews</p>
+                <p class="testimonial-quote">
+                    At Family Doctor, our patients are at the heart of everything we do. Their stories inspire us to deliver the highest quality of care every day. Here's what some of them have to say about their experiences with us:
+                </p>
+                <p class="testimonial-author">- Fatima Abdul Vahab</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="{%static 'imges/test1.png' %}" alt="Patient Image">
+                </div>
+                <h2 class="testimonial-title">HAPPY PATIENTS</h2>
+                <p class="testimonial-subtitle">Patient Testimonials and Reviews</p>
+                <p class="testimonial-quote">
+                    The care and support I received during my stay were excellent. The doctors and staff were very attentive to my needs. I truly recommend this hospital.
+                </p>
+                <p class="testimonial-author">- John Doe</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="{%static 'imges/test1.png' %}" alt="Patient Image">
+                </div>
+                <h2 class="testimonial-title">HAPPY PATIENTS</h2>
+                <p class="testimonial-subtitle">Patient Testimonials and Reviews</p>
+                <p class="testimonial-quote">
+                    My experience with the hospital has been nothing short of amazing. The staff was professional and always helpful during my treatment.
+                </p>
+                <p class="testimonial-author">- Jane Smith</p>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn">❮</button>
+            <button class="carousel-btn" id="nextBtn">❯</button>
+        </div>
+    </section>
+
+    <script>
+        const carousel = document.getElementById("carousel");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let index = 0;
+
+        const updateCarousel = () => {
+            const width = carousel.offsetWidth;
+            const cards = carousel.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].classList.remove('active');
+            }
+
+            cards[index].classList.add('active');
+            carousel.style.transform = `translateX(-${index * width}px)`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === cards.length - 1;
+        };
+
+        prevBtn.addEventListener("click", () => {
+            if (index > 0) {
+                index--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (index < carousel.children.length - 1) {
+                index++;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener("resize", updateCarousel);
+    </script>
+</body>
+</html>

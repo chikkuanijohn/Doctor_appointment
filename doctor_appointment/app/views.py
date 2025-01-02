@@ -98,14 +98,14 @@ def Manage(request):
 def Our_Team(request):
     return render(request,'Our_Team.html')
 
-def Our_Specialities(request):
-    return render(request,'Our_Specialities.html')
+def Testimonals(request):
+    return render(request,'Testimonals.html')
 
 def booking(request):
     return render(request,'booking.html')
 
 def booking_appoin(request):
-    return render(request,'booking_appoin')
+    return render(request,'booking_appoin.html')
 
 
 def view_bookings(request):
