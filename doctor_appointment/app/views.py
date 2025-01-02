@@ -46,12 +46,15 @@ def admin_home(req):
        return redirect(doctor_appointment_login)
     
     
-def user_home(req)  :
-    if 'user' in req.session:
-        Doctor=Doctor.objects.all()
-        return render(req,'user/user_home.html',{'Doctor':Doctor})
-    else:
-        return redirect(doctor_appointment_login)
+def user_home(req):
+     if 'user' in req.session:
+         data=Doctor.objects.all()
+         return render(req,'user/user_home.html',{'Doctor':data})
+     else:
+          return redirect(doctor_appointment_login)
+    
+    
+       
 
 
 
@@ -100,6 +103,9 @@ def Our_Specialities(request):
 
 def booking(request):
     return render(request,'booking.html')
+
+def booking_appoin(request):
+    return render(request,'booking_appoin')
 
 
 def view_bookings(request):
