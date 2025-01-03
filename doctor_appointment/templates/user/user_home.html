@@ -234,103 +234,250 @@
         padding: 0;
         background-color: #f9f9f9;
     }
+
     .services-section {
         text-align: center;
-        padding: 50px 20px;
-        background-color: #ffffff;
+        padding: 40px 20px;
     }
+
     .services-section h1 {
         font-size: 2em;
-        margin-bottom: 20px;
-        color: #333333;
+        color: #000;
+        margin-bottom: 30px;
     }
+
     .services-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
     }
-    .service-card {
-        background-color: #fef2f2;
+
+    .service-box {
+        background-color: #ffeef2;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 20px;
         width: 250px;
-        text-align: left;
-        transition: transform 0.3s ease;
+        text-align: center;
     }
-    .service-card:hover {
-        transform: translateY(-5px);
-    }
-    .service-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #ffffff;
-        border-radius: 50%;
+
+    .service-box img {
         width: 50px;
         height: 50px;
-        margin: 0 auto 15px;
+        margin-bottom: 15px;
     }
-    .service-icon img {
-        width: 30px;
-        height: 30px;
-    }
-    .service-card h3 {
+
+    .service-box h2 {
         font-size: 1.2em;
-        color: #333333;
+        color: #333;
         margin-bottom: 10px;
     }
-    .service-card p {
-        font-size: 0.9em;
-        color: #666666;
+
+    .service-box p {
+        font-size: 0.95em;
+        color: #666;
         line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .service-box {
+            width: 90%;
+        }
     }
 </style>
 </head>
 <body>
+
 <div class="services-section">
-    <h1>24 X 7 Services</h1>
-    <div class="services-container">
-        <!-- ICU Card -->
-        <div class="service-card">
-            <div class="service-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046756.png" alt="ICU Icon">
-            </div>
-            <h3>ICU</h3>
-            <p>Our ICU services are at the core of many life-saving treatments. Patients are monitored round the clock in sterile, infection-safe environments.</p>
+<h1>24 X 7 Services</h1>
+<div class="services-container">
+    <div class="service-box">
+        <img src="{%static 'imges/icu.png' %}" alt="ICU Icon">
+        <h2>ICU</h2>
+        <p>Our ICU services are at the core of many of our life-saving treatments. Patients are monitored round the clock in sterile, infection-safe environments.</p>
+    </div>
+    <div class="service-box">
+        <img src="{%static 'imges/ambulnce.png' %}" alt="Ambulance Icon">
+        <h2>Ambulance</h2>
+        <p>Our critical care ambulances provide timely and quality pre-hospital emergency care and interhospital transfer for serious and injured patients.</p>
+    </div>
+    <div class="service-box">
+        <img src="https://via.placeholder.com/50" alt="Radiology Icon">
+        <h2>Radiological Investigations</h2>
+        <p>Experience unparalleled convenience with our 24/7 radiological investigations. We prioritize accurate and prompt results anytime, day or night.</p>
+    </div>
+    <div class="service-box">
+        <img src="https://via.placeholder.com/50" alt="Pharmacy Icon">
+        <h2>Pharmacy</h2>
+        <p>Available round the clock, our pharmacy is well-stocked with high-quality medicines and manned by competent staff.</p>
+    </div>
+    <div class="service-box">
+        <img src="https://via.placeholder.com/50" alt="Laboratory Icon">
+        <h2>Laboratory</h2>
+        <p>We have a 24/7 lab equipped with modern equipment utilizing the latest technology to help doctors and specialists administer evidence-based treatments.</p>
+    </div>
+    <div class="service-box">
+        <img src="https://via.placeholder.com/50" alt="Operation Theatre Icon">
+        <h2>Operation Theatre Services</h2>
+        <p>Our OT complex is designed to work round the clock with state-of-the-art facilities to perform basic and advanced laparoscopic surgeries safely.</p>
+    </div>
+    <div class="service-box">
+        <img src="https://via.placeholder.com/50" alt="Emergency Icon">
+        <h2>Emergency and Trauma Care</h2>
+        <p>Our 24-hour emergency and trauma care protocols guarantee the highest levels of skill, expertise, and infrastructure for urgent cases.</p>
+    </div>
+    <div class="service-box">
+        <img src="https://via.placeholder.com/50" alt="Haemodialysis Icon">
+        <h2>Haemodialysis</h2>
+        <p>The Dialysis Unit provides lifesaving treatment for patients with chronic nephrotic diseases, ensuring their ongoing health needs are met.</p>
+    </div>
+</div>
+</div>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    footer {
+        background-color: #f8f8f8;
+        color: #333;
+        padding: 20px 0;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin: 15px;
+        min-width: 200px;
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #000;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #0056b3;
+    }
+
+    .footer-section p {
+        line-height: 1.6;
+    }
+
+    .footer-section a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+        color: #0056b3;
+    }
+
+    .footer-section .social-icons a img {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        transition: transform 0.3s;
+    }
+
+    .footer-section .social-icons a img:hover {
+        transform: scale(1.2);
+    }
+
+    .footer-section .app-store img {
+        max-width: 150px;
+        margin-top: 10px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .footer-bottom a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+        color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<footer>
+<div class="footer-container">
+    <div class="footer-section logo">
+        <!-- <img src="muthoot-logo.png" alt="Muthoot Healthcare Logo"> -->
+        <p>ASDM Fam Hospital</p>
+    </div>
+    <div class="footer-section links">
+        <h3>Links</h3>
+        <ul>
+            <li><a href="#">Doctors</a></li>
+            <li><a href="#">Specialities</a></li>
+            <li><a href="#">Photo Gallery</a></li>
+            <li><a href="#">Home Care</a></li>
+            <li><a href="#">Careers</a></li>
+        </ul>
+    </div>
+    <div class="footer-section contact">
+        <h3>Contact</h3>
+        <p>Address: MGM Muthoot Hospitals,<br>Pathanamthitta Ring Road,<br>Pathanamthitta, Kerala - 689645</p>
+        <p>Phone: <a href="tel:04682203500">0468 220 3500</a></p>
+        <p>Email: <a href="mailto:mmcpta@muthoothealthcare.com">mmcpta@muthoothealthcare.com</a></p>
+        <p>PRO: <a href="tel:+919447722370">+91 94477 22370</a></p>
+    </div>
+    <div class="footer-section follow">
+        <h3>Follow</h3>
+        <div class="social-icons">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+            <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
         </div>
-        <!-- Ambulance Card -->
-        <div class="service-card">
-            <div class="service-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965358.png" alt="Ambulance Icon">
-            </div>
-            <h3>Ambulance</h3>
-            <p>Our critical care ambulances provide timely and quality pre-hospital emergency care/interhospital transfer for serious and injured patients.</p>
-        </div>
-        <!-- Radiological Investigations Card -->
-        <div class="service-card">
-            <div class="service-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/841/841853.png" alt="Radiology Icon">
-            </div>
-            <h3>Radiological Investigations</h3>
-            <p>Experience unparalleled convenience with our 24/7 radiological investigations. Accurate and prompt results any time, day or night.</p>
-        </div>
-        <!-- Pharmacy Card -->
-        <div class="service-card">
-            <div class="service-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/3394/3394185.png" alt="Pharmacy Icon">
-            </div>
-            <h3>Pharmacy</h3>
-            <p>Available round the clock, our pharmacy is well-stocked with high-quality medicines manned by competent staff.</p>
+        <div class="app-store">
+            <a href="#"><img src="google-play-badge.png" alt="Get it on Google Play"></a>
         </div>
     </div>
 </div>
-</body>  
-</html>    
-
-               
-        
-       
+<div class="footer-bottom">
+    <p>Copyright © 2024 MGM Muthoot Hospitals | Designed & Developed by <a href="#">NetIndia</a></p>
+</div>
+</footer>
+</body>
+</html>
