@@ -79,14 +79,30 @@ def register(req):
 
 
 def booking_view(request):
-    return render(request, 'booking.html') 
+    return render(request,'booking.html') 
    
 def book_appointment(request):
-    return render(request,'book_appointment.html') 
+            if request.method=='POST':
+                name=request.POST['name']
+                email=request.POST['email']
+                date=request.POST['date']
+                message=request.POST['message']
+                print(name,email,date,message)
+                try:
+                   data=User.objects.create_user(name=name,email=email,date=date,message=message)
+                   data.save()
+                except:
+                     messages.warning(request,'invalid email')
+                     return redirect(book_appointment) 
+                return redirect(user_home) 
+            else:  
+  
+                return render(request,'user/book_appointment.html')
+
 
  
 def Contact(request):
-    return render(request, 'Contact.html')
+    return render(request,'Contact.html')
 
 
 def check_up_packages(request):
@@ -104,8 +120,7 @@ def Testimonals(request):
 def booking(request):
     return render(request,'booking.html')
 
-def booking_appoin(request):
-    return render(request,'booking_appoin.html')
+
 
 
 def view_bookings(request):

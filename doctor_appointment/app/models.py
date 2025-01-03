@@ -18,3 +18,12 @@ class Patient(models.Model):
     Patient_name = models.CharField(max_length=100)
     age  = models.PositiveIntegerField()
     contact_number = models.CharField(max_length=15)
+
+
+
+
+class Appointment(models.Model):
+    Name = models.TextField()
+    age = models.PositiveIntegerField()
+    Appointmentdate = models.CharField(max_length=100)
+    Reasonforappointment = models.CharField(max_length=100)
