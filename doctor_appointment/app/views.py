@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import *
 import os
 from django.contrib.auth.models import User
+from django.conf import settings
+from .models import Patient
 
 # Create your views here.
 
@@ -83,21 +85,17 @@ def booking_view(request):
    
 def book_appointment(request):
             if request.method=='POST':
-                name=request.POST['name']
+                Name=request.POST['name']
+                age=request.POST['age']
+                Appointmentdate=request.POST['appointmentdate']
+                Reasonforappointment=request.POST['reasonforappointment']
                 email=request.POST['email']
-                date=request.POST['date']
-                message=request.POST['message']
-                print(name,email,date,message)
-                try:
-                   data=User.objects.create_user(name=name,email=email,date=date,message=message)
-                   data.save()
-                except:
-                     messages.warning(request,'invalid email')
-                     return redirect(book_appointment) 
-                return redirect(user_home) 
-            else:  
-  
-                return render(request,'user/book_appointment.html')
+                data = Appointment(Name=Name,age=age, Appointmentdate=Appointmentdate,Reasonforappointment=Reasonforappointment,email=email)
+                data.save()
+                return redirect(book_appointment)
+            patient=Patient.objects.all()
+             
+            return render(request,'user/book_appointment.html',{'book_appointment':patient})
 
 
  

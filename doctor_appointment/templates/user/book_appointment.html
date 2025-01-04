@@ -142,11 +142,11 @@
           {% csrf_token %}
           <div class="form-group">
               <label for="name"> Name *</label>
-              <input type="text" id="name" name="name" placeholder="Enter your  name" required>
+              <input type="text" id="name" name="name" placeholder="Enter your  Name" required>
           </div>
           <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              <label for="age">Age *</label>
+              <input type="number" id="age" name="age" placeholder="Enter your age" required>
           </div>
           <!-- <div class="form-group">
               <label for="phone">Phone Number *</label>
@@ -154,7 +154,7 @@
           </div> -->
           <div class="form-group">
               <label for="date">Preferred Appointment Date *</label>
-              <input type="date" id="date" name="date" required>
+              <input type="date" id="appointmentdate" name="appointmentdate" required>
           </div>
          
           <!-- <div class="form-group">
@@ -170,8 +170,13 @@
           </div> -->
           <div class="form-group">
               <label for="message">Reason for Appointment</label>
-              <textarea id="message" name="message" rows="4" placeholder="Provide details about your condition or reason for visit"></textarea>
+              <textarea id="message"  name="reasonforappointment" rows="4" placeholder="Provide details about your condition or reason for visit">{{data.Reasonforappointment}}</textarea>
           </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
           <button type="submit" class="btn">Book Appointment</button>
       </form>
   </div>
