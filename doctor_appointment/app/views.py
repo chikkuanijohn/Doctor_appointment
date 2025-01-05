@@ -81,7 +81,7 @@ def register(req):
 
 
 def booking_view(request):
-    return render(request,'booking.html') 
+        return render(request,'booking_view') 
    
 def book_appointment(request):
             if request.method=='POST':
@@ -122,9 +122,27 @@ def booking(request):
 
 
 def view_bookings(request):
-    # buy=Buy.objects.all()[::-1]
-    return render(request,'admin/view_bookings.html')
+    if request.method =='POST':
+         Name=request.POST['name']
+         age=request.POST['age']
+         Appointmentdate=request.POST['appointmentdate']
+         Reasonforappointment=request.POST['reasonforappointment']
+         email=request.POST['email']
 
+         if Name and age and Appointmentdate and Reasonforappointment and email:
+             data = Appointment(Name=Name,age=age, Appointmentdate=Appointmentdate,Reasonforappointment=Reasonforappointment,email=email)
+             data.save()
+             return redirect('admin_home')
+    patient=Patient.objects.all()
+    return render(request,'admin/view_bookings.html',{'patient': patient})
+
+
+         
+             
+
+
+    
+   
 def view_doc(request):
     return render(request,'view_doc.html')
 
