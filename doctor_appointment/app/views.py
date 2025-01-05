@@ -109,8 +109,8 @@ def check_up_packages(request):
 def Manage(request):
     return render(request,'Manage.html')
 
-def Our_Team(request):
-    return render(request,'Our_Team.html')
+def About(request):
+    return render(request,'About.html')
 
 def Testimonals(request):
     return render(request,'Testimonals.html')

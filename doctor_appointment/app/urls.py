@@ -14,7 +14,7 @@ urlpatterns=[
     path('add_details',views.add_details),
     path('check_up_packages/',views.check_up_packages),
     path('Manage/',views.Manage),
-    path('Our_Team/',views.Our_Team),
+    path('About/',views.About),
     path('Testimonals/',views.Testimonals),
     path('booking',views.booking),
     
