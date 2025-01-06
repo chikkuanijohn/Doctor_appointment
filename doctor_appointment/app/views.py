@@ -106,8 +106,8 @@ def Contact(request):
 def check_up_packages(request):
     return render(request,'check_up_packages.html')
 
-def Manage(request):
-    return render(request,'Manage.html')
+def Our_specialities(request):
+    return render(request,'Our_specialities.html')
 
 def About(request):
     return render(request,'About.html')
