@@ -7,7 +7,7 @@ urlpatterns=[
     path('logout',views.doctor_appointment_logout),
     path('user_home',views.user_home),
     path('register/',views.register),
-    path('booking/',views.booking_view),
+    path('booking/',views.booking),
     path('book_appointment', views.book_appointment),  
     path('Contact/',views.Contact),
     path('view_bookings',views.view_bookings),
@@ -16,7 +16,7 @@ urlpatterns=[
     path('Our_specialities/',views.Our_specialities),
     path('About/',views.About),
     path('Testimonals/',views.Testimonals),
-    path('booking',views.booking),
+    
     
     path('view_doc',views.view_doc),
     path('edit_details/<pid>', views.edit_details),

@@ -6,6 +6,7 @@ import os
 from django.contrib.auth.models import User
 from django.conf import settings
 from .models import Patient
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -80,8 +81,8 @@ def register(req):
     
 
 
-def booking_view(request):
-        return render(request,'booking_view') 
+def booking(request):
+        return render(request,'booking') 
    
 def book_appointment(request):
             if request.method=='POST':
@@ -96,6 +97,60 @@ def book_appointment(request):
             patient=Patient.objects.all()
              
             return render(request,'user/book_appointment.html',{'book_appointment':patient})
+
+
+
+
+def booking_appointment(request):
+    if request.method == "POST":
+        Name = request.POST.get("name")
+        email = request.POST.get("email")
+        Appointment_date = request.POST.get("appointment_date")
+        Reasonforappointment = request.POST.get("reasonforappointment")
+        token_number = generate_token_number()  # Custom function to generate token
+        
+        if email and Name and Appointment_date and Reasonforappointment:
+            # Save the appointment details to the database
+            appointment = Appointment.objects.create(
+                name=Name,
+                email=email,
+                appointment_date=Appointment_date,
+                reasonforappointment= Reasonforappointment,
+                token_number=token_number
+            )
+            appointment.save()
+            
+            # Send email to the doctor
+            send_mail(
+                'Appointment Booking Confirmation',
+                f'Hello Doctor,\n\nAn appointment has been booked successfully.\n\n'
+                f'Details:\n'
+                f'Patient Name: {Name}\n'
+                f'Appointment Date: {Appointment_date}\n'
+                f' reasonforappointment: {Reasonforappointment}\n'
+                f'Token Number: {token_number}\n\n'
+                f'Please be prepared to attend to the patient at the scheduled time.',
+                'chikkuanijohn1@gmail.com',  # Replace with your email
+                [email],
+                fail_silently=False,
+            )
+            
+            # Send confirmation to the user
+            messages.success(request, "Appointment booked successfully! The details have been sent to the doctor.")
+            return redirect('appointment_success')  # Redirect to a success page or another relevant page
+        else:
+            messages.error(request, "Please fill all the required fields.")
+            return redirect('book_appointment')  # Redirect back to the appointment form page
+
+    return render(request, 'book_appointment.html')
+
+def generate_token_number():
+    """
+    Function to generate a unique token number for the appointment.
+    You can customize this to use more sophisticated logic.
+    """
+    now = appointment_date.now()
+    return f"TOK{now.strftime('%Y%m%d%H%M%S')}"
 
 
  
@@ -134,10 +189,10 @@ def view_bookings(request):
              data.save()
              return redirect('admin_home')
     patient=Patient.objects.all()
-    return render(request,'admin/view_bookings.html',{'patient': patient})
+    return render(request,'admin/view_bookings.html', {'patient': patient})
 
 
-         
+        
              
 
 
